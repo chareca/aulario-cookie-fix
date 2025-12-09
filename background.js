@@ -1,6 +1,6 @@
 const DOMAIN = "unavarra.es"; 
-const COOKIE_LIST = ["JSESSIONID", "SAKAISESSIONID", "SERVERID"];
-const EXTRA_DAYS = 366;
+const COOKIE_LIST = ["JSESSIONID", "SAKAISESSIONID", "SERVERID"]; 
+const EXTRA_DAYS = 365; // number of days to extend the expiration date of the cookies in COOKIE_LIST
 
 function extendCookie(cookie) {
     // extend EXTRA_DAYS from now
@@ -17,6 +17,7 @@ function extendCookie(cookie) {
       path: cookie.path,
       secure: cookie.secure,
       httpOnly: cookie.httpOnly,
+      sameSite: cookie.sameSite,
       expirationDate: newDate,
       storeId: cookie.storeId
     }).then(() => {
@@ -28,8 +29,6 @@ function extendCookie(cookie) {
 
 function testAndExtend() {
     browser.cookies.getAll({ domain: DOMAIN }).then((cookies) => {
-        let modifiedCount = 0;
-
         cookies.forEach((cookie) => {
             // check cookie is in target list
             if (COOKIE_LIST.includes(cookie.name)) {
@@ -39,7 +38,6 @@ function testAndExtend() {
 
                 if (!cookie.expirationDate || cookie.expirationDate < threshold) {
                      extendCookie(cookie);
-                     modifiedCount++;
                 }
             }
         });
