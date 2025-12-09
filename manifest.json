@@ -1,15 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "aulario cookie fix",
+  "manifest_version": 3,
+  "name": "Aulario cookie fix",
   "version": "1.0",
-  "description": "Extiende la fecha de expiracion de las cookies automáticamente.",
+  "description": "extends the expiration date of cookies automatically.",
   "permissions": [
     "cookies",
-    "*://*.unavarra.es/*", 
     "notifications",
     "webNavigation"
   ],
+  "host_permissions": [
+    "*://*.unavarra.es/*"
+  ],
   "background": {
     "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cookies@aulariofix.local",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
   }
 }
