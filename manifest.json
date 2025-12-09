@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Aulario cookie fix",
-  "version": "1.1",
+  "version": "1.2",
   "description": "extends the expiration date of cookies automatically.",
   "permissions": [
     "cookies",
@@ -12,10 +12,10 @@
     "*://*.unavarra.es/*"
   ],
   "icons": {
-    "16": "favicon.ico",
-    "32": "favicon.ico",
-    "48": "favicon.ico",
-    "128": "favicon.ico"
+    "16": "icons/favicon16x16.jpg",
+    "32": "icons/favicon32x32.jpg",
+    "48": "icons/favicon48x48.jpg",
+    "128": "icons/favicon128x128.jpg"
   },
   "background": {
     "scripts": ["background.js"]
