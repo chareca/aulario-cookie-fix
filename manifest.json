@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "aulario cookie fix",
+  "version": "1.0",
+  "description": "Extiende la fecha de expiracion de las cookies automáticamente.",
+  "permissions": [
+    "cookies",
+    "*://*.unavarra.es/*", 
+    "notifications",
+    "webNavigation"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
